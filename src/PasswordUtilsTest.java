@@ -57,4 +57,13 @@ public class PasswordUtilsTest {
         // assert
         assertEquals(false, actual);
     }
+    @Test
+    void checkingForLastChar() {
+        // arrange
+        String password = "12345678$";
+        // act
+        boolean actual = PasswordUtils.isAlphanumeric(password);
+        // assert
+        assertEquals(false, actual);
+    }
 }
