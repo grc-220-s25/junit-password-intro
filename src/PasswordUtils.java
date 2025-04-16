@@ -3,6 +3,10 @@
  */
 public class PasswordUtils {
 
+    public static void main(String[] args) {
+        // String result =describePasswordLength("hellosdev220");
+        // System.out.println(result);
+    }
     /**
      * Returns a description of the password's length.
      *
@@ -15,7 +19,7 @@ public class PasswordUtils {
         int length = password.length();
         if (length < 6) {
             return "short";
-        } else if (length <= 12) {
+        } else if (length < 12) {
             return "medium";
         }
         return "long";
