@@ -2,6 +2,16 @@
  * Utility class for analyzing passwords.
  */
 public class PasswordUtils {
+    public static void main(String[] args) {
+//        String result = describePasswordLength("helloSDEV220");
+//        System.out.println(result);
+//        result = describePasswordLength("helloSDEV2200");
+//        System.out.println(result);
+//        result = describePasswordLength("helloSDEV22");
+//        System.out.println(result);
+//        result = describePasswordLength("");
+//        System.out.println(result);
+    }
 
     /**
      * Returns a description of the password's length.
@@ -15,7 +25,7 @@ public class PasswordUtils {
         int length = password.length();
         if (length < 6) {
             return "short";
-        } else if (length <= 12) {
+        } else if (length < 12) {
             return "medium";
         }
         return "long";
@@ -52,6 +62,7 @@ public class PasswordUtils {
     public static boolean containsTriple(String password) {
         // TODO: Make tests FIRST, then implement the method
         // Please have your tests in a separate commit from the implementation
+
         return false;
     }
 
