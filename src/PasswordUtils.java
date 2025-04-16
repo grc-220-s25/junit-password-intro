@@ -38,8 +38,6 @@ public class PasswordUtils {
             char c = password.charAt(i);
             if (!Character.isLetterOrDigit(c)) {
                 return false;
-            } else {
-                return true;
             }
         }
         return true;
