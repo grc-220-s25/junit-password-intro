@@ -47,7 +47,7 @@ public class PasswordUtilsTest {
     @Test
     void testIsAlphanumericTrue() {
         // Arrange
-        String password = "hello 123";
+        String password = "hello123";
         // Act
         boolean actual = PasswordUtils.isAlphanumeric(password);
         // Assert
