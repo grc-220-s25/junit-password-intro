@@ -30,7 +30,27 @@ public class PasswordUtilsTest {
         String password = "helloSDEV";
         // Act
         String actual = PasswordUtils.describePasswordLength(password);
-        //Assert
+        // Assert
         assertEquals("medium", actual);
+    }
+
+    @Test
+    void testIsAlphanumericFalse() {
+        // Arrange
+        String password = "$#@!";
+        // Act
+        boolean actual = PasswordUtils.isAlphanumeric(password);
+        // Assert
+        assertEquals(false, actual);
+    }
+
+    @Test
+    void testIsAlphanumericTrue() {
+        // Arrange
+        String password = "hello 123";
+        // Act
+        boolean actual = PasswordUtils.isAlphanumeric(password);
+        // Assert
+        assertEquals(true, actual);
     }
 }
