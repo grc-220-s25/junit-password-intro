@@ -39,7 +39,7 @@ public class PasswordUtilsTest {
         assertEquals("medium", actual);
 }
 
-    @Test //Checks if method returns true if password is nonnumerical
+    @Test //Checks if method returns false if password is nonnumerical
     void isAlphanumeric() {
         //Arrange
         String password = "$#&!";
@@ -49,7 +49,7 @@ public class PasswordUtilsTest {
         assertEquals(false,actual);
 
     }
-    @Test //checks if method returns true or false if password is numerical
+    @Test //checks if method returns true if password is numerical
     void isAlphanumericTrue() {
         //Arrange
         String password = "Hello 123";

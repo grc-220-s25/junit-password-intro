@@ -36,8 +36,6 @@ public class PasswordUtils {
         for (int i = 0; i < password.length() - 1; i++) {
             char c = password.charAt(i);
             if (!Character.isLetterOrDigit(c)) {
-                return false;
-            } else {
                 return true;
             }
         }
