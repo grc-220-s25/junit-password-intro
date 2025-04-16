@@ -2,10 +2,15 @@
  * Utility class for analyzing passwords.
  */
 public class PasswordUtils {
+    public static void main(String[] args) {
+        // String result = describePasswordLength("helloSDEV220");
+        // System.out.println(result);
 
+
+    }
     /**
      * Returns a description of the password's length.
-     *
+     * 
      * @param password the password to analyze
      * @return "short" if the password has fewer than 6 characters,
      *         "medium" if it has between 6 and 11 characters (inclusive),
@@ -15,7 +20,7 @@ public class PasswordUtils {
         int length = password.length();
         if (length < 6) {
             return "short";
-        } else if (length <= 12) {
+        } else if (length < 12) {
             return "medium";
         }
         return "long";
