@@ -67,7 +67,7 @@ public class PasswordUtilsTest {
 
     @Test
     void testContainsTripleTrueSituation(){
-        String password = "validPassworrrd";
+        String password = "validPasssword";
         
         boolean actual = PasswordUtils.containsTriple(password);
 

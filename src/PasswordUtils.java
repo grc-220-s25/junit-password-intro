@@ -58,6 +58,19 @@ public class PasswordUtils {
     public static boolean containsTriple(String password) {
         // TODO: Make tests FIRST, then implement the method
         // Please have your tests in a separate commit from the implementation
+        int first = 0;
+        int second = 1;
+        for (int i = 2; i < password.length(); i++){
+            char firstChar = password.charAt(first);
+            char secondChar = password.charAt(second);
+            char thirdChar = password.charAt(i);
+            if (firstChar == secondChar && firstChar == thirdChar){
+                return true;
+            } else {
+                first++;
+                second++;
+            }
+        }
         return false;
     }
 
