@@ -60,6 +60,7 @@ public class PasswordUtils {
         // Please have your tests in a separate commit from the implementation
         int first = 0;
         int second = 1;
+        password = password.toLowerCase();
         for (int i = 2; i < password.length(); i++){
             char firstChar = password.charAt(first);
             char secondChar = password.charAt(second);
@@ -86,7 +87,13 @@ public class PasswordUtils {
     public static int countSpecialCharacters(String password) {
         // TODO: Make tests FIRST, then implement the method
         // Please have your tests in a separate commit from the implementation
-        return 0;
+        int count = 0;
+        for (char letter : password.toCharArray()){
+            if (!Character.isLetterOrDigit(letter)){
+                count++;
+            }
+        }
+        return count;
     }
 
     /**

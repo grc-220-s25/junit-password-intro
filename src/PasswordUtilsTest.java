@@ -82,4 +82,31 @@ public class PasswordUtilsTest {
 
         assertEquals(false, actual);
     }
+
+    @Test
+    void testContainsTripleUpperOrLowerCase(){
+        String password = "validPppassworrd";
+        
+        boolean actual = PasswordUtils.containsTriple(password);
+
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void testCountSpecialCharactersNoSpecialChar(){
+        String password = "validPassword";
+
+        int actual = PasswordUtils.countSpecialCharacters(password);
+
+        assertEquals(0, actual);
+    }
+
+    @Test
+    void testCountSpecialCharactersSpecialCharInStartMiddleEnd(){
+        String password = "#valid$Password%";
+
+        int actual = PasswordUtils.countSpecialCharacters(password);
+
+        assertEquals(3, actual);
+    }
 }
