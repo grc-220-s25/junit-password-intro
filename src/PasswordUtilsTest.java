@@ -55,4 +55,31 @@ public class PasswordUtilsTest {
 
         assertEquals(false, actual);
     }
+
+    @Test
+    void testIsAlphanumericCharIsAtEnd(){
+        String password = "validPassword%";
+
+        boolean actual = PasswordUtils.isAlphanumeric(password);
+
+        assertEquals(false, actual);
+    }
+
+    @Test
+    void testContainsTripleTrueSituation(){
+        String password = "validPassworrrd";
+        
+        boolean actual = PasswordUtils.containsTriple(password);
+
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void testContainsTripleFalseSituation(){
+        String password = "validPassworrd";
+        
+        boolean actual = PasswordUtils.containsTriple(password);
+
+        assertEquals(false, actual);
+    }
 }
