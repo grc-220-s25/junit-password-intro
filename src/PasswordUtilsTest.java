@@ -37,4 +37,22 @@ public class PasswordUtilsTest {
         //Assert
         assertEquals("medium", actual);
     }
+
+    @Test
+    void testIsAlphanumericWithoutNonAlphanumeric(){
+        String password = "validPassword";
+
+        boolean actual = PasswordUtils.isAlphanumeric(password);
+
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void testIsAlphanumericWithNonAlphanumeric(){
+        String password = "valid&Password";
+
+        boolean actual = PasswordUtils.isAlphanumeric(password);
+
+        assertEquals(false, actual);
+    }
 }
