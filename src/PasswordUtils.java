@@ -110,6 +110,16 @@ public class PasswordUtils {
         // Please have your tests in a separate commit from the implementation
         // Required: please use countSpecialCharacters as a helper method.
         // Don't just copy/paste the logic!
+        int count = 0;
+        for (char letter : password.toLowerCase().toCharArray()){
+            if (!Character.isLetterOrDigit(letter)){
+                count++;
+            }
+        }
+
+        if (count >= minimum){
+            return true;
+        }
         return false;
     }
 }

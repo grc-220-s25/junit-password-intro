@@ -109,4 +109,22 @@ public class PasswordUtilsTest {
 
         assertEquals(3, actual);
     }
+
+    @Test
+    void testHasSufficientSpecialCharTrueSituation(){
+        String password = "validP$assw#ord";
+
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, 2);
+
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void testHasSufficientSpecialCharFalseSituation(){
+        String password = "valid*)Password@%$%";
+
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, 10);
+
+        assertEquals(false, actual);
+    }
 }
