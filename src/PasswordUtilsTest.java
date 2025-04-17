@@ -35,6 +35,7 @@ public class PasswordUtilsTest {
 
     }
 
+    // test for 2nd problem
     @Test
     void testIsAlphaNumeric() {
         // Arrange
@@ -71,6 +72,47 @@ public class PasswordUtilsTest {
         String password = "!heyBeautiful123!";
         // Act
         boolean actual = PasswordUtils.isAlphanumeric(password);
+        // Assert
+        assertEquals(false, actual);
+    }
+
+    // test for third problem
+    @Test
+    void containsTripleKkk() {
+        // Arrange
+        String password = "KkK0573abc";
+        // Act
+        boolean actual = PasswordUtils.containsTriple(password);
+        // Assert
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void containsTriple$$$() {
+        // Arrange
+        String password = "123$$$$$456";
+        // Act
+        boolean actual = PasswordUtils.containsTriple(password);
+        // Assert
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void containsTripleSameLetter() {
+        // Arrange
+        String password = "KKKKKK!!!";
+        // Act
+        boolean actual = PasswordUtils.containsTriple(password);
+        // Assert
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void containsTriple() {
+        // Arrange
+        String password = "aabbccddeeff";
+        // Act
+        boolean actual = PasswordUtils.containsTriple(password);
         // Assert
         assertEquals(false, actual);
     }
