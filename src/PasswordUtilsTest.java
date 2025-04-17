@@ -109,4 +109,30 @@ public class PasswordUtilsTest {
         // Assert
         assertEquals(0, actual);
     }
+
+    @Test
+    void testDescribeHasSufficientSpecialCharacters() {
+        // Arrange
+        String string = "!dsla$cdss#";
+        int requiredNumOfSpecialChar = 3;
+
+        // Act
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(string, requiredNumOfSpecialChar);
+
+        // Assert
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void testDescribeDoNotHaveSufficientSpecialCharacters() {
+        // Arrange
+        String string = "!dsla$cdss";
+        int requiredNumOfSpecialChar = 3;
+
+        // Act
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(string, requiredNumOfSpecialChar);
+
+        // Assert
+        assertEquals(false, actual);
+    }
 }
