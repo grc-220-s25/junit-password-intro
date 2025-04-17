@@ -37,4 +37,28 @@ public class PasswordUtilsTest {
         // Assert
         assertEquals("medium", actual);
     }
+
+    @Test
+    void testDescribeIsAlphaNumeric() {
+        // Arrange
+        String string = "dslacds1";
+
+        // Act
+        boolean actual = PasswordUtils.isAlphanumeric(string);
+
+        // Assert
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void testDescribeIsNotAlphaNumeric() {
+        // Arrange
+        String string = "dslac#ds1";
+
+        // Act
+        boolean actual = PasswordUtils.isAlphanumeric(string);
+
+        // Assert
+        assertEquals(false, actual);
+    }
 }
