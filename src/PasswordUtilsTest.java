@@ -101,7 +101,7 @@ public class PasswordUtilsTest {
     @Test
     void testDescribeCountWithoutSpecialCharacters() {
         // Arrange
-        String string = "dslac#dss";
+        String string = "dslacdss";
 
         // Act
         int actual = PasswordUtils.countSpecialCharacters(string);
