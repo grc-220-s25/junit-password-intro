@@ -3,6 +3,12 @@
  */
 public class PasswordUtils {
 
+    public static void main(String[] args){
+        String string = "";
+        String result = describePasswordLength(string);
+        System.out.println(result);
+    }
+
     /**
      * Returns a description of the password's length.
      *
@@ -11,11 +17,13 @@ public class PasswordUtils {
      *         "medium" if it has between 6 and 11 characters (inclusive),
      *         or "long" if it has 12 or more characters
      */
+
+
     public static String describePasswordLength(String password) {
         int length = password.length();
         if (length < 6) {
             return "short";
-        } else if (length <= 12) {
+        } else if (length < 12) {
             return "medium";
         }
         return "long";
@@ -28,12 +36,10 @@ public class PasswordUtils {
      * @return true if the password is alphanumeric, false otherwise
      */
     public static boolean isAlphanumeric(String password) {
-        for (int i = 0; i < password.length() - 1; i++) {
+        for (int i = 0; i < password.length(); i++) {
             char c = password.charAt(i);
             if (!Character.isLetterOrDigit(c)) {
                 return false;
-            } else {
-                return true;
             }
         }
         return true;
@@ -52,6 +58,20 @@ public class PasswordUtils {
     public static boolean containsTriple(String password) {
         // TODO: Make tests FIRST, then implement the method
         // Please have your tests in a separate commit from the implementation
+        int first = 0;
+        int second = 1;
+        password = password.toLowerCase();
+        for (int i = 2; i < password.length(); i++){
+            char firstChar = password.charAt(first);
+            char secondChar = password.charAt(second);
+            char thirdChar = password.charAt(i);
+            if (firstChar == secondChar && firstChar == thirdChar){
+                return true;
+            } else {
+                first++;
+                second++;
+            }
+        }
         return false;
     }
 
@@ -67,7 +87,13 @@ public class PasswordUtils {
     public static int countSpecialCharacters(String password) {
         // TODO: Make tests FIRST, then implement the method
         // Please have your tests in a separate commit from the implementation
-        return 0;
+        int count = 0;
+        for (char letter : password.toCharArray()){
+            if (!Character.isLetterOrDigit(letter)){
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
@@ -84,6 +110,16 @@ public class PasswordUtils {
         // Please have your tests in a separate commit from the implementation
         // Required: please use countSpecialCharacters as a helper method.
         // Don't just copy/paste the logic!
+        int count = 0;
+        for (char letter : password.toLowerCase().toCharArray()){
+            if (!Character.isLetterOrDigit(letter)){
+                count++;
+            }
+        }
+
+        if (count >= minimum){
+            return true;
+        }
         return false;
     }
 }
