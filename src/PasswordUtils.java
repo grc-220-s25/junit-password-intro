@@ -33,7 +33,7 @@ public class PasswordUtils {
      * @return true if the password is alphanumeric, false otherwise
      */
     public static boolean isAlphanumeric(String password) {
-        for (int i = 0; i < password.length() - 1; i++) {
+        for (int i = 0; i < password.length(); i++) {
             char c = password.charAt(i);
             if (!Character.isLetterOrDigit(c)) {
                 return false;
@@ -58,7 +58,7 @@ public class PasswordUtils {
         char current = password.charAt(0);
         int repetition = 1;
 
-        for (int i = 1; i < password.length() - 1; i++) {
+        for (int i = 1; i < password.length(); i++) {
             if (current == password.charAt(i)) {
                 repetition++;
                 if (repetition == 3) return true;
@@ -83,7 +83,7 @@ public class PasswordUtils {
         // TODO: Make tests FIRST, then implement the method
         // Please have your tests in a separate commit from the implementation
         int specialCharCount = 0;
-        for (int i = 0; i < password.length() - 1; i++) {
+        for (int i = 0; i < password.length(); i++) {
             if (!Character.isLetterOrDigit(password.charAt(i))) {
                 specialCharCount++;
             }
@@ -105,6 +105,8 @@ public class PasswordUtils {
         // Please have your tests in a separate commit from the implementation
         // Required: please use countSpecialCharacters as a helper method.
         // Don't just copy/paste the logic!
-        return false;
+
+        int numOfSpecialChar = countSpecialCharacters(password);
+        return numOfSpecialChar >= minimum;
     }
 }
