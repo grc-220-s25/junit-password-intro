@@ -129,6 +129,7 @@ public class PasswordUtilsTest {
 
     @Test
     void testContainsTriple2(){
+
         // Arrange
         String password = "hheeyy";
 
@@ -142,6 +143,7 @@ public class PasswordUtilsTest {
 
     @Test
     void testContainsTriple3(){
+
         // Arrange
         String password = "hh heeyy";
 
@@ -150,6 +152,48 @@ public class PasswordUtilsTest {
 
         // Assert
         assertEquals(false, actual);
+    }
+
+
+    // Part 4: countSpecialCharacters method
+
+    @Test
+    void testCountSpecialCharactersAsSpaces(){
+
+        // Arrange
+        String password = "he ythe re";
+
+        // Act
+        int actual = PasswordUtils.countSpecialCharacters(password);
+
+        // Assert
+        assertEquals(2, actual);
+    }
+
+    @Test
+    void testCountSpecialCharacters(){
+
+        // Arrange
+        String password = "!!!hello!!!";
+
+        // Act
+        int actual = PasswordUtils.countSpecialCharacters(password);
+
+        // Assert
+        assertEquals(6, actual);
+    }
+
+    @Test
+    void testCountSpecialCharactersAndSpaces(){
+
+        // Arrange
+        String password = "he ythe re!!";
+
+        // Act
+        int actual = PasswordUtils.countSpecialCharacters(password);
+
+        // Assert
+        assertEquals(4, actual);
     }
 
 
