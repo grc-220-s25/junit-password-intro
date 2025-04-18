@@ -112,6 +112,45 @@ public class PasswordUtilsTest {
     }
 
 
+    // Part 3: containsTriple method
+
+    @Test
+    void testContainsTriple1(){
+        
+        // Arrange
+        String password = "heyyy";
+
+        // Act
+        boolean actual = PasswordUtils.containsTriple(password);
+
+        // Assert
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void testContainsTriple2(){
+        // Arrange
+        String password = "hheeyy";
+
+        // Act
+        boolean actual = PasswordUtils.containsTriple(password);
+
+        // Assert
+        assertEquals(false, actual);
+    }
+
+
+    @Test
+    void testContainsTriple3(){
+        // Arrange
+        String password = "hh heeyy";
+
+        // Act
+        boolean actual = PasswordUtils.containsTriple(password);
+
+        // Assert
+        assertEquals(false, actual);
+    }
 
 
 }
