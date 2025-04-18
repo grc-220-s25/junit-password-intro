@@ -33,7 +33,7 @@ public class PasswordUtils {
      * @return true if the password is alphanumeric, false otherwise
      */
     public static boolean isAlphanumeric(String password) {
-        for (int i = 0; i < password.length(); i++) {
+        for (int i = 0; i < password.length(); i++) {  // removed -1 to check for last charater.
             char c = password.charAt(i);
             if (!Character.isLetterOrDigit(c)) {
                 return false;
@@ -57,8 +57,16 @@ public class PasswordUtils {
     public static boolean containsTriple(String password) {
         // TODO: Make tests FIRST, then implement the method
         // Please have your tests in a separate commit from the implementation
-        return false;
+        
+        for(int i = 0; i < password.length()-2; i++) {
+                if(password.charAt(i) == password.charAt(i+1)
+                && password.charAt(i) == password.charAt(i+2)) {
+                    return true;
+                }
+            }
+           return false;
     }
+    
 
     /**
      * Returns the number of special characters in the password.

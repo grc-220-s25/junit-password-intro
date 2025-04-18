@@ -58,12 +58,49 @@ public class PasswordUtilsTest {
         assertEquals(false, actual);
     }
     @Test
-    void checkingForLastChar() {
+    void checkingForAnySpecialCharAtLastIndex() {
         // arrange
         String password = "12345678$";
         // act
         boolean actual = PasswordUtils.isAlphanumeric(password);
         // assert
         assertEquals(false, actual);
+    
+    }
+    @Test
+    void checkingForRepeats() {
+        // arrange
+        String password = "aaa";
+        // act
+        boolean actual = PasswordUtils.containsTriple(password);
+        // assert
+        assertEquals(true, actual);
+    }
+    @Test
+    void checkingForNonRepeats() {
+        // arrange
+        String password = "abc";
+        // act
+        boolean actual = PasswordUtils.containsTriple(password);
+        // assert
+        assertEquals(false, actual);
+    }
+    @Test
+    void checkingRepeatsNotInRow() {
+        // arrange
+        String password = "abacad";
+        // act
+        boolean actual = PasswordUtils.containsTriple(password);
+        // assert
+        assertEquals(false,actual);
+    }
+    @Test
+    void checkingForSpacesInRow() {
+        // arrange
+        String password = "a   abc";
+        // act
+        boolean actual = PasswordUtils.containsTriple(password);
+        // assert
+        assertEquals(true,actual);
     }
 }
