@@ -2,6 +2,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PasswordUtilsTest {
+
+    // Part 1: describePasswordLength method
+
     @Test
     void testDescribePasswordLengthShortPassword() {
 
@@ -50,7 +53,65 @@ public class PasswordUtilsTest {
     }
 
 
+    @Test
+    void testDescribePasswordLengthLongPassword(){
+
+        // Arrange
+        String password = "helloStudentSDEV220";
+
+        // Act
+        String actual = PasswordUtils.describePasswordLength(password);
+
+        // Assert
+        assertEquals("long", actual);
+    }
 
 
-    
+
+    // Part 2: isAlphanumeric method
+
+    @Test
+    void testIsAlphanumeric(){
+
+        // Arrange
+        String password = "hello123";
+
+        // Act
+        boolean actual = PasswordUtils.isAlphanumeric(password);
+
+        // Assert
+        assertEquals (true, actual);
+    }
+
+
+    @Test
+    void testIsAlphanumericWithSpecialChar(){
+
+        // Arrange
+        String password = "hello!";
+
+        // Act
+        boolean actual = PasswordUtils.isAlphanumeric(password);
+
+        // Assert
+        assertEquals (false, actual);
+    }
+
+
+    @Test
+    void testIsAlphanumericWithSpace(){
+
+        // Arrange
+        String password = "hello 123";
+
+        // Act
+        boolean actual = PasswordUtils.isAlphanumeric(password);
+
+        // Assert
+        assertEquals (false, actual);
+    }
+
+
+
+
 }
