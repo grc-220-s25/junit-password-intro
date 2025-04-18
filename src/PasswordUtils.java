@@ -3,14 +3,9 @@
  */
 public class PasswordUtils {
     public static void main(String[] args) {
-//        String result = describePasswordLength("helloSDEV220");
-//        System.out.println(result);
-//        result = describePasswordLength("helloSDEV2200");
-//        System.out.println(result);
-//        result = describePasswordLength("helloSDEV22");
-//        System.out.println(result);
-//        result = describePasswordLength("");
-//        System.out.println(result);
+        
+        Boolean result = containsTriple("aabbbcc");
+        System.out.println(result);
     }
 
     /**
@@ -60,11 +55,15 @@ public class PasswordUtils {
      * @return true if password has a character repeated three times in a row, false otherwise 
      */
     public static boolean containsTriple(String password) {
-        // TODO: Make tests FIRST, then implement the method
-        // Please have your tests in a separate commit from the implementation
-
+        for (int i = 0; i < password.length() -2; i++) {
+            if (password.charAt(i) == password.charAt(i + 1) && 
+                password.charAt(i) == password.charAt(i + 2)) {
+                return true;
+            }
+        }
         return false;
     }
+
 
     /**
      * Returns the number of special characters in the password.

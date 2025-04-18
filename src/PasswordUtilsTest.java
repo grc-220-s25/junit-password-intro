@@ -55,5 +55,60 @@ public class PasswordUtilsTest {
         Boolean actual = PasswordUtils.isAlphanumeric(password);
             //Assert
         assertEquals(false, actual);
-        }        
+        }
+        @Test
+        void isTripple() {
+            //Arrange
+        String password = "aaa";
+            //Act
+        Boolean actual = PasswordUtils.containsTriple(password);
+            //Assert
+        assertEquals(true, actual);
+        }
+        @Test
+        void isTripple2() {
+            //Arrange
+        String password = "aa";
+            //Act
+        Boolean actual = PasswordUtils.containsTriple(password);
+            //Assert
+        assertEquals(false, actual);
+        }
+        @Test
+        void isTripple3() {
+            //Arrange
+        String password = "abacad";
+            //Act
+        Boolean actual = PasswordUtils.containsTriple(password);
+            //Assert
+        assertEquals(false, actual);
+        }
+        @Test
+        void noRepeats() {
+            //Arrange
+        String password = "abcd";
+            //Act
+        Boolean actual = PasswordUtils.containsTriple(password);
+            //Assert
+        assertEquals(false, actual);
+        }
+        @Test
+        void blankRepeats() {
+            //Arrange
+        String password = "   ";
+            //Act
+        Boolean actual = PasswordUtils.containsTriple(password);
+            //Assert
+        assertEquals(true, actual);
+        }
+        @Test
+        void threeGroupsOfThree() {
+            //Arrange
+        String password = "$$$   @@@";
+            //Act
+        Boolean actual = PasswordUtils.containsTriple(password);
+            //Assert
+        assertEquals(true, actual);
+        }
+
     }
