@@ -103,4 +103,31 @@ public class PasswordUtilsTest {
         // assert
         assertEquals(true,actual);
     }
+    @Test
+    void specialCharaters() {
+        // arrange
+        String password = "@$%";
+        // act
+        int actual = PasswordUtils.countSpecialCharacters(password);
+        // assert
+        assertEquals(3,actual);
+    }
+    @Test
+    void specialCharInText() {
+        // arrange
+        String password = "sdev220$@Hello";
+        // act
+        int actual = PasswordUtils.countSpecialCharacters(password);
+        // assert
+        assertEquals(2, actual);
+    }
+    @Test
+    void specialCharatersWithSpace() {
+         // arrange
+         String password = "sdev 220 $@ Hello";
+         // act
+         int actual = PasswordUtils.countSpecialCharacters(password);
+         // assert
+         assertEquals(5, actual);
+    }
 }
