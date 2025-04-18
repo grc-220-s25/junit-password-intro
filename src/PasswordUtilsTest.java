@@ -36,24 +36,24 @@ public class PasswordUtilsTest {
         //Act
         Boolean actual = PasswordUtils.isAlphanumeric(password);
         //Assert
-        assertEquals(false, actual);
+        assertEquals(true, actual);
         }
-            @Test
-    void checkIfAllChars() {
+    @Test
+    void checkIfAllLetterChars() {
         //Arrange
         String password = "abcdefghijk";
         //Act
         Boolean actual = PasswordUtils.isAlphanumeric(password);
         //Assert
-        assertEquals(false, actual);
+        assertEquals(true, actual);
         }
         @Test
-        void checkIfHasSpecialChars() {
+        void checkIfIsAlphanumeric() {
             //Arrange
-            String password = "123456$ 2";
+        String password = "123456$";
             //Act
-            Boolean actual = PasswordUtils.isAlphanumeric(password);
+        Boolean actual = PasswordUtils.isAlphanumeric(password);
             //Assert
-            assertEquals(false, actual);
-            }        
+        assertEquals(false, actual);
+        }        
     }
