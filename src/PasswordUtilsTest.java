@@ -197,4 +197,45 @@ public class PasswordUtilsTest {
     }
 
 
+    // Part 5: hasSufficientSpecialCharacters method
+
+    @Test
+    void testHasSufficientSpecialCharactersMoreThan(){
+
+        // Arrange
+        String password = "hellothere!!!";
+
+        // Act
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, 2);
+
+        // Assert
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void testHasSufficientSpecialCharactersLessThan(){
+
+        // Arrange
+        String password = "hello there!!!";
+
+        // Act
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, 6);
+
+        // Assert
+        assertEquals(false, actual);
+    }
+
+    @Test
+    void testHasSufficientSpecialCharactersEqualTo(){
+
+        // Arrange
+        String password = "hello there!!!";
+
+        // Act
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, 4);
+
+        // Assert
+        assertEquals(true, actual);
+    }
+
 }

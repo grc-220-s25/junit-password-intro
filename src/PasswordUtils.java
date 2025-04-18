@@ -4,8 +4,8 @@
 public class PasswordUtils {
 
     public static void main(String[] args){
-        String result = describePasswordLength("hellosdev220");
-        System.out.println(result);
+        // String result = describePasswordLength("hellosdev220");
+        // System.out.println(result);
 
     }
     /**
@@ -106,6 +106,9 @@ public class PasswordUtils {
         // Please have your tests in a separate commit from the implementation
         // Required: please use countSpecialCharacters as a helper method.
         // Don't just copy/paste the logic!
-        return false;
+
+        int countSpecialChars = countSpecialCharacters(password);
+
+        return countSpecialChars >= minimum;
     }
 }
