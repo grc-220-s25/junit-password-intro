@@ -213,4 +213,75 @@ public class PasswordUtilsTest {
             //Assert
         assertEquals(36, actual);
         }
+        //Unit-tests for hasSufficientSpecialCharacters
+        @Test
+        void containsNoSpecialCharacters() {
+            //Arrange
+        String password = "";
+        int minimum = 3;
+            //Act
+        int actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+            //Assert
+        assertEquals(false, actual);
+        }
+        @Test
+        void hasAtLeastThreeSpecialCharacters() {
+            //Arrange
+        String password = "d!2@m#3$f%4^o&5*d(6)c 7-e_8+u=8`c~9;d'0?s>1<m!2@e#3$k%4^e&5*d(6)j!6@h#7$";
+        int minimum = 3;
+            //Act
+        int actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+            //Assert
+        assertEquals(true, actual);
+        }
+        @Test
+        void hasOneHundredAndThreeSpecialCharacters() {
+            //Arrange
+        String password = "d!2@m#3$f%4^o&5*d(6)c 7-e_8+u=8`c~9;d'0?s>1<m!2@e#3$k%4^e&5*d(6)j!6@h#7$";
+        int minimum = 103;
+            //Act
+        int actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+            //Assert
+        assertEquals(false, actual);
+        }
+        @Test
+        void hasNegativeNumberOfSpecialCharacters() {
+            //Arrange
+        String password = "d!2@m#3$f%4^o&5*d(6)c 7-e_8+u=8`c~9;d'0?s>1<m!2@e#3$k%4^e&5*d(6)j!6@h#7$";
+        int minimum = -3;
+            //Act
+        int actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+            //Assert
+        assertEquals(false, actual);
+        }
+        @Test
+        void hasThreeSpecialCharacters() {
+            //Arrange
+        String password = "!@$";
+        int minimum = 3;
+            //Act
+        int actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+            //Assert
+        assertEquals(true, actual);
+        }
+        @Test
+        void doesNotHaveEnoughSpecialCharacters() {
+            //Arrange
+        String password = "%^";
+        int minimum = 3;
+            //Act
+        int actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+            //Assert
+        assertEquals(false, actual);
+        }
+        @Test
+        void whenMinimumSpecialCharactersIsZero() {
+            //Arrange
+        String password = "dkfjk120342";
+        int minimum = 0;
+            //Act
+        int actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+            //Assert
+        assertEquals(true, actual);
+        }
     }
