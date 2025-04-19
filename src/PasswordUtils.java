@@ -3,7 +3,7 @@
  */
 public class PasswordUtils {
     public static void main(String[] args) {
-        
+
         Boolean result = containsTriple("aabbbcc");
         System.out.println(result);
 
@@ -58,7 +58,12 @@ public class PasswordUtils {
      * @return true if password has a character repeated three times in a row, false otherwise 
      */
     public static boolean containsTriple(String password) {
-
+        for (int i = 0; i < password.length() -2; i++) {
+            if (password.charAt(i) == password.charAt(i + 1) && 
+                password.charAt(i) == password.charAt(i + 2)) {
+                return true;
+            }
+        }
         return false;
     }
 

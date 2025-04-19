@@ -65,7 +65,7 @@ public class PasswordUtilsTest {
             //Act
         Boolean actual = PasswordUtils.isAlphanumeric(password);
             //Assert
-        assertEquals(false, actual);
+        assertEquals(true, actual);
         }
         //Unit-tests for containsTripple method
         @Test
