@@ -29,7 +29,16 @@ public class PasswordUtils {
         // }
         // System.out.println("this is " + checkerBool);
         // System.out.println(counter);
-       
+
+        // String password = "s&s&s&s&s&s&s&s&s&s&";
+        // int count = 0;
+        // for (int i = 0; i < password.length(); i++) {
+        //     char c = password.charAt(i);
+        //     if (!Character.isLetterOrDigit(c)) {
+        //         count++;
+        //     }
+        // }
+        
     }
 
     /**
@@ -107,6 +116,17 @@ public class PasswordUtils {
     public static int countSpecialCharacters(String password) {
         // TODO: Make tests FIRST, then implement the method
         // Please have your tests in a separate commit from the implementation
+        int count = 0;
+        while (count == 0) {
+            for (int i = 0; i < password.length(); i++) {
+                char c = password.charAt(i);
+                if (!Character.isLetterOrDigit(c)) {
+                    count++;
+                }
+            }
+            return count;
+        }
+        
         return 0;
     }
 

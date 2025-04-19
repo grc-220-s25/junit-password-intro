@@ -100,7 +100,7 @@ public class PasswordUtilsTest {
     void containsSpecial(){
         String password = "!@##$$%^^&&*())*^";
         int actual = PasswordUtils.countSpecialCharacters(password);
-        assertEquals(18, actual);
+        assertEquals(17, actual);
     }
     @Test
     void containsHalfSpecialandNoSpecial(){
