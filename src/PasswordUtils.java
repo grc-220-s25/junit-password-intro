@@ -100,7 +100,10 @@ public class PasswordUtils {
      * @return true has the minimum number of special charcters or more, false otherwise
      */
     public static boolean hasSufficientSpecialCharacters(String password, int minimum) {
-
+        int numOfSpecialChars = countSpecialCharacters(password);
+        if (numOfSpecialChars >= minimum) {
+            return true;
+        }
         return false;
     }
 }
