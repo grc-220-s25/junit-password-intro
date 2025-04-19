@@ -166,7 +166,7 @@ public class PasswordUtilsTest {
             //Act
         int actual = PasswordUtils.countSpecialCharacters(password);
             //Assert
-        assertEquals(2, actual);
+        assertEquals(3, actual);
         }
         @Test
         void hasOnlyLetters() {

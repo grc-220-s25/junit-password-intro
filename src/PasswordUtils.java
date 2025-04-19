@@ -68,6 +68,7 @@ public class PasswordUtils {
     }
 
 
+
     /**
      * Returns the number of special characters in the password.
      * 
@@ -78,9 +79,16 @@ public class PasswordUtils {
      * @return the count of special characters
      */
     public static int countSpecialCharacters(String password) {
-
-        return 0;
+        int count = 0;
+        for (int i = 0; i < password.length(); i++) {
+            char currChar = password.charAt(i);
+            if (!Character.isLetterOrDigit(currChar)) {
+                count++;
+            }
+        }
+        return count;
     }
+
 
     /**
      * Checks whether a password has at least a minimum number of special characters.
