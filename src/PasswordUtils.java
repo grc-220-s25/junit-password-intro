@@ -88,7 +88,7 @@ public class PasswordUtils {
                 if (counter == 2) {
                     return true;
                 }
-            } else if (c != password.charAt(i+1) && counter != 3) {
+            } else if (c != password.charAt(i+1) && counter != 2) {
                 counter = 0;
             }
         }
