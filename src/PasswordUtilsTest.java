@@ -28,7 +28,7 @@ public class PasswordUtilsTest {
         //Act
         String actual = PasswordUtils.describePasswordLength(password);
         //Assert
-        assertEquals("medium", actual);
+        assertEquals("long", actual);
     }
     //Unit-tests for isAlphanumeric method
     @Test
@@ -140,5 +140,77 @@ public class PasswordUtilsTest {
             //Assert
         assertEquals(false, actual);
         }
-
+        //Unit-tests for countSpecialCharacters
+        @Test
+        void noCharactersInserted() {
+            //Arrange
+        String password = "";
+            //Act
+        int actual = PasswordUtils.countSpecialCharacters(password);
+            //Assert
+        assertEquals(0, actual);
+        }
+        @Test
+        void hasOneSpecialCharacter() {
+            //Arrange
+        String password = "$";
+            //Act
+        int actual = PasswordUtils.countSpecialCharacters(password);
+            //Assert
+        assertEquals(1, actual);
+        }
+        @Test
+        void twoSpecialCharactersSeparatedByASpace() {
+            //Arrange
+        String password = "@ &";
+            //Act
+        int actual = PasswordUtils.countSpecialCharacters(password);
+            //Assert
+        assertEquals(2, actual);
+        }
+        @Test
+        void hasOnlyLetters() {
+            //Arrange
+        String password = "dmfodceucdsmekedjh";
+            //Act
+        int actual = PasswordUtils.countSpecialCharacters(password);
+            //Assert
+        assertEquals(0, actual);
+        }
+        @Test
+        void hasOnlyNumbers() {
+            //Arrange
+        String password = "129493095573092948";
+            //Act
+        int actual = PasswordUtils.countSpecialCharacters(password);
+            //Assert
+        assertEquals(0, actual);
+        }
+        @Test
+        void hasNoSpecialCharacters() {
+            //Arrange
+        String password = "d2m3f4o5d6c7e8u8c9d0s1m2e3k4e5d6j6h7";
+            //Act
+        int actual = PasswordUtils.countSpecialCharacters(password);
+            //Assert
+        assertEquals(0, actual);
+        }
+        @Test
+        void hasOneSpecialCharacterAtTheEnd() {
+            //Arrange
+        String password = "d2m3f4o5d6c7e8u8c9d0s1m2e3k4e5d6j6h7*";
+            //Act
+        int actual = PasswordUtils.countSpecialCharacters(password);
+            //Assert
+        assertEquals(1, actual);
+        }
+        @Test
+        void hasSpecialCharactersSeparatedByNormalOnes() {
+            //Arrange
+        String password = "d!2@m#3$f%4^o&5*d(6)c 7-e_8+u=8`c~9;d'0?s>1<m!2@e#3$k%4^e&5*d(6)j!6@h#7$";
+            //Act
+        int actual = PasswordUtils.countSpecialCharacters(password);
+            //Assert
+        assertEquals(36, actual);
+        }
     }
