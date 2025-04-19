@@ -144,6 +144,10 @@ public class PasswordUtils {
         // Please have your tests in a separate commit from the implementation
         // Required: please use countSpecialCharacters as a helper method.
         // Don't just copy/paste the logic!
+        int SpecialCharacters = countSpecialCharacters(password);
+        if (SpecialCharacters >= minimum) {
+            return true;
+        }
         return false;
     }
 }
