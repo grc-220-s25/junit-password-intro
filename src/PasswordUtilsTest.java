@@ -60,4 +60,33 @@ public class PasswordUtilsTest {
 
         assertEquals(false, actual);
     }
+
+    @Test 
+    void CheckingForTripleCharachter(){
+        String password = "paaassword";
+
+        boolean actual =PasswordUtils.containsTriple(password);
+
+        assertEquals(true, actual);
+    }
+
+    @Test 
+    void CheckingForlessthanTriple(){
+        String password = "paassword";
+
+        boolean actual =PasswordUtils.containsTriple(password);
+
+        assertEquals(true, actual);
+    }
+
+    @Test 
+    void CheckingForlessthanTriplewithnumber(){
+        String password = "paassword***";
+
+        boolean actual =PasswordUtils.containsTriple(password);
+
+        assertEquals(true, actual);
+    }
+    
+
 }
