@@ -54,7 +54,7 @@ public class PasswordUtilsTest {
 
     @Test 
     void testCheckForALphanumbericDigitFalse(){
-        String password = "hello%";
+        String password = "hello";
 
         boolean actual = PasswordUtils.isAlphanumeric(password);
 
