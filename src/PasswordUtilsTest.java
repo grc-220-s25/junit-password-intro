@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PasswordUtilsTest {
+    //describePasswordLength tests
     @Test
     void testDescribePasswordLengthShortPassword() {
         // Arrange
@@ -32,6 +33,8 @@ public class PasswordUtilsTest {
         //assert
         assertEquals("medium", actual);
     }
+
+    //isAlphanumeric tests
     @Test
     void isAlphanumericTrue(){
         //Arrange
@@ -55,6 +58,8 @@ public class PasswordUtilsTest {
         assertEquals(false, actual);
 
     }
+
+    //containsTriple tests
     @Test
     void containsTripleCheckFalse(){
         String password = "ahahhahaha";
@@ -82,5 +87,26 @@ public class PasswordUtilsTest {
         assertEquals(false, acutal);
     }
 
+    //countSpecialCharacters tests
+    @Test
+    void containsNoSpecial(){
+        String password = "heresmypassword12345";
+
+        int actual = PasswordUtils.countSpecialCharacters(password);
+
+        assertEquals(0, actual);
+    }
+    @Test
+    void containsSpecial(){
+        String password = "!@##$$%^^&&*())*^";
+        int actual = PasswordUtils.countSpecialCharacters(password);
+        assertEquals(18, actual);
+    }
+    @Test
+    void containsHalfSpecialandNoSpecial(){
+        String password = "s&s&s&s&s&s&s&s&s&s&";
+        int actual = PasswordUtils.countSpecialCharacters(password);
+        assertEquals(10, actual);
+    }
 
 }
