@@ -88,5 +88,14 @@ public class PasswordUtilsTest {
         assertEquals(true, actual);
     }
     
+    @Test
+    void CountSpecialCharacters(){
+        String password = "Hello@#d";
+
+        int actual = PasswordUtils.countSpecialCharacters(password);
+
+        assertEquals(3, actual);
+    }
+    
 
 }
