@@ -6,6 +6,30 @@ public class PasswordUtils {
         // String result  = describePasswordLength("helloSDEV220");
         // System.out.println(result);
 
+        // boolean result = containsTriple("paaasword");
+        // System.out.println(result);
+
+        // String test = "paaasword";
+        // boolean checkerBool = false;
+        // int counter = 0;
+        // for (int i = 0; i < test.length()-1; i++) {
+        //     char c = test.charAt(i);
+        //     System.out.println("c: " + c);
+        //     if (c == test.charAt(i+1)) {
+        //         counter++;
+        //         System.err.println("At second place: " + test.charAt(i+1));
+        //         System.out.println("Counter incremented: " + counter);
+        //         if (counter == 2) {
+        //             System.out.println("Counter now: " + counter);
+        //             checkerBool = true;
+        //         }
+        //     } else if (c != test.charAt(i+1) && counter != 2) {
+        //         counter = 0;
+        //     }
+        // }
+        // System.out.println("this is " + checkerBool);
+        // System.out.println(counter);
+       
     }
 
     /**
@@ -56,6 +80,18 @@ public class PasswordUtils {
     public static boolean containsTriple(String password) {
         // TODO: Make tests FIRST, then implement the method
         // Please have your tests in a separate commit from the implementation
+        int counter = 0;
+        for (int i = 0; i < password.length()-1; i++) {
+            char c = password.charAt(i);
+            if (c == password.charAt(i+1)) {
+                counter++;
+                if (counter == 2) {
+                    return true;
+                }
+            } else if (c != password.charAt(i+1) && counter != 3) {
+                counter = 0;
+            }
+        }
         return false;
     }
 
