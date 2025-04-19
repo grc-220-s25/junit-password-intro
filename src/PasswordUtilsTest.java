@@ -220,7 +220,7 @@ public class PasswordUtilsTest {
         String password = "";
         int minimum = 3;
             //Act
-        int actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+        Boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, minimum);
             //Assert
         assertEquals(false, actual);
         }
@@ -230,7 +230,7 @@ public class PasswordUtilsTest {
         String password = "d!2@m#3$f%4^o&5*d(6)c 7-e_8+u=8`c~9;d'0?s>1<m!2@e#3$k%4^e&5*d(6)j!6@h#7$";
         int minimum = 3;
             //Act
-        int actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+        Boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, minimum);
             //Assert
         assertEquals(true, actual);
         }
@@ -240,7 +240,7 @@ public class PasswordUtilsTest {
         String password = "d!2@m#3$f%4^o&5*d(6)c 7-e_8+u=8`c~9;d'0?s>1<m!2@e#3$k%4^e&5*d(6)j!6@h#7$";
         int minimum = 103;
             //Act
-        int actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+        Boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, minimum);
             //Assert
         assertEquals(false, actual);
         }
@@ -250,9 +250,9 @@ public class PasswordUtilsTest {
         String password = "d!2@m#3$f%4^o&5*d(6)c 7-e_8+u=8`c~9;d'0?s>1<m!2@e#3$k%4^e&5*d(6)j!6@h#7$";
         int minimum = -3;
             //Act
-        int actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+        Boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, minimum);
             //Assert
-        assertEquals(false, actual);
+        assertEquals(true, actual);
         }
         @Test
         void hasThreeSpecialCharacters() {
@@ -260,7 +260,7 @@ public class PasswordUtilsTest {
         String password = "!@$";
         int minimum = 3;
             //Act
-        int actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+        Boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, minimum);
             //Assert
         assertEquals(true, actual);
         }
@@ -270,7 +270,7 @@ public class PasswordUtilsTest {
         String password = "%^";
         int minimum = 3;
             //Act
-        int actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+        Boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, minimum);
             //Assert
         assertEquals(false, actual);
         }
@@ -280,7 +280,7 @@ public class PasswordUtilsTest {
         String password = "dkfjk120342";
         int minimum = 0;
             //Act
-        int actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+        Boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, minimum);
             //Assert
         assertEquals(true, actual);
         }
