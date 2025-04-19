@@ -94,8 +94,26 @@ public class PasswordUtilsTest {
 
         int actual = PasswordUtils.countSpecialCharacters(password);
 
+        assertEquals(2, actual);
+    }
+
+    @Test
+    void CountSpecialCharactersWithNumber(){
+        String password = "Hello123@@#3";
+
+        int actual = PasswordUtils.countSpecialCharacters(password);
+
         assertEquals(3, actual);
     }
-    
+
+    @Test
+    void CountSpecialCharactersWithSpace(){
+        String password = "A B C  ";
+
+        int actual = PasswordUtils.countSpecialCharacters(password);
+
+        assertEquals(4, actual);
+    }
+
 
 }
