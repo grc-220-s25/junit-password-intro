@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PasswordUtilsTest {
+    //Unit-tests for describePasswordLength method
     @Test
     void testDescribePasswordLengthShortPassword() {
         //Arrange
@@ -29,6 +30,7 @@ public class PasswordUtilsTest {
         //Assert
         assertEquals("medium", actual);
     }
+    //Unit-tests for isAlphanumeric method
     @Test
     void checkIfAllNumeric() {
         //Arrange
@@ -57,7 +59,17 @@ public class PasswordUtilsTest {
         assertEquals(false, actual);
         }
         @Test
-        void isTripple() {
+        void isNull() {
+            //Arrange
+        String password = "";
+            //Act
+        Boolean actual = PasswordUtils.isAlphanumeric(password);
+            //Assert
+        assertEquals(false, actual);
+        }
+        //Unit-tests for containsTripple method
+        @Test
+        void containsTripple() {
             //Arrange
         String password = "aaa";
             //Act
@@ -66,7 +78,7 @@ public class PasswordUtilsTest {
         assertEquals(true, actual);
         }
         @Test
-        void isTripple2() {
+        void containsDouble() {
             //Arrange
         String password = "aa";
             //Act
@@ -75,7 +87,7 @@ public class PasswordUtilsTest {
         assertEquals(false, actual);
         }
         @Test
-        void isTripple3() {
+        void threeNonConsecutiveCharacters() {
             //Arrange
         String password = "abacad";
             //Act
@@ -109,6 +121,24 @@ public class PasswordUtilsTest {
         Boolean actual = PasswordUtils.containsTriple(password);
             //Assert
         assertEquals(true, actual);
+        }
+        @Test
+        void rowInTheMiddle() {
+            //Arrange
+        String password = "aabbbcc";
+            //Act
+        Boolean actual = PasswordUtils.containsTriple(password);
+            //Assert
+        assertEquals(true, actual);
+        }
+        @Test
+        void stringIsEmpty() {
+            //Arrange
+        String password = "";
+            //Act
+        Boolean actual = PasswordUtils.containsTriple(password);
+            //Assert
+        assertEquals(false, actual);
         }
 
     }
