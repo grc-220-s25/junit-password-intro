@@ -3,6 +3,13 @@
  */
 public class PasswordUtils {
 
+    public static void main(String[] args) {
+
+        //to test the main method and describePasswordLength method
+        String result = describePasswordLength("hSV52");
+        System.out.println(result);
+    }
+
     /**
      * Returns a description of the password's length.
      *
@@ -15,7 +22,7 @@ public class PasswordUtils {
         int length = password.length();
         if (length < 6) {
             return "short";
-        } else if (length <= 12) {
+        } else if (length < 12) {
             return "medium";
         }
         return "long";
@@ -29,6 +36,7 @@ public class PasswordUtils {
      */
     public static boolean isAlphanumeric(String password) {
         for (int i = 0; i < password.length() - 1; i++) {
+            // char c = password.charAt(i); is for the first character of the password
             char c = password.charAt(i);
             if (!Character.isLetterOrDigit(c)) {
                 return false;
