@@ -119,5 +119,19 @@ public class PasswordUtilsTest {
         //Assert
         assertFalse(actual);
     }
+
+    //Doing a test for the method countSpecialCharacters
+
+    @Test
+    void testCountSpecialCharacters() {
+        //Arrange
+        String password = "helloSD#EV220@";
+
+        //Act
+        int actual = PasswordUtils.countSpecialCharacters(password);
+
+        //Assert
+        assertEquals(2, actual);
+    }
     
 }
