@@ -148,4 +148,35 @@ public class PasswordUtilsTest {
         assertEquals(6, actual);
     }
 
+    // test for 5th problem
+    @Test
+    void hasSufficientSpecialCharactersOne() {
+        // Arrange
+        String password = "@shd%^*&hdh>";
+        // Act
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+        // Assert
+        assertEquals(6, actual);
+    }
+
+    @Test
+    void hasSufficientSpecialCharactersTwo() {
+        // Arrange
+        String password = "hd%^&jshd(*)";
+        // Act
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+        // Assert
+        assertEquals(6, actual);
+    }
+
+    @Test
+    void hasSufficientSpecialCharactersThree() {
+        // Arrange
+        String password = "jsdkfj!@#jiHK";
+        // Act
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+        // Assert
+        assertEquals(3, actual);
+    }
+
 }
