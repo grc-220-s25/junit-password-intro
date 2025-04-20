@@ -130,4 +130,14 @@ public class PasswordUtilsTest {
          // assert
          assertEquals(5, actual);
     }
+    @Test
+    void hasMinimumSpecialChars() {
+        // arrange
+        int minimum = 1;
+        String password = "sdev220$$$";
+        // act
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, minimum);
+        // assert
+        assertEquals(true, actual);
+    }
 }

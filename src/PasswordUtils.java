@@ -58,7 +58,7 @@ public class PasswordUtils {
         // TODO: Make tests FIRST, then implement the method
         // Please have your tests in a separate commit from the implementation
         
-        for(int i = 0; i < password.length()-2; i++) {
+        for(int i = 0; i < password.length()-2; i++) {  
                 if(password.charAt(i) == password.charAt(i+1)
                 && password.charAt(i) == password.charAt(i+2)) {
                     return true;
@@ -105,6 +105,12 @@ public class PasswordUtils {
         // Please have your tests in a separate commit from the implementation
         // Required: please use countSpecialCharacters as a helper method.
         // Don't just copy/paste the logic!
+        int helperMethod = countSpecialCharacters(password);
+        for(int i = 0; i < password.length(); i++) {
+            if(helperMethod > minimum ) {
+                return true;
+            }
+        }
         return false;
     }
 }
