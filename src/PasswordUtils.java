@@ -62,7 +62,7 @@ public class PasswordUtils {
      */
     public static boolean containsTriple(String password) {
         // TODO: Make tests FIRST, then implement the method
-        
+
         //if the password is empty or less than 3 chars, it can't have a triple
         if (password == null || password.length() < 3) {
             return false;
@@ -90,8 +90,22 @@ public class PasswordUtils {
      */
     public static int countSpecialCharacters(String password) {
         // TODO: Make tests FIRST, then implement the method
+        if (password == null || password.isEmpty()) {
+            return 0;
+        }
+        int count = 0;
+        for (int i = 0; i < password.length(); i++) {
+            //char c = password.charAt(i); is for each character of the password
+            char c = password.charAt(i);
+            //if the character is not a letter or digit, increment the count by 1
+            if (!Character.isLetterOrDigit(c)) {
+                count++;
+            }
+        }
+
         // Please have your tests in a separate commit from the implementation
-        return 0;
+        //return count here, not 0. 
+        return count;
     }
 
     /**
