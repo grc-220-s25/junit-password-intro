@@ -62,6 +62,19 @@ public class PasswordUtils {
      */
     public static boolean containsTriple(String password) {
         // TODO: Make tests FIRST, then implement the method
+        
+        //if the password is empty or less than 3 chars, it can't have a triple
+        if (password == null || password.length() < 3) {
+            return false;
+        }
+
+        for (int i = 0; i < password.length() - 2; i++) {
+            char c = password.charAt(i);
+            if (Character.isLetterOrDigit(c) && c == password.charAt(i + 1) && c == password.charAt(i + 2)) {
+                return true;
+            }
+        }
+
         // Please have your tests in a separate commit from the implementation
         return false;
     }
