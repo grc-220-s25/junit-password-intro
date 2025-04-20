@@ -111,6 +111,18 @@ public class PasswordUtilsTest {
     }
 
     @Test
+    void testDescribeCountWithAllSpecialCharacters() {
+        // Arrange
+        String string = "!@#$%^&*";
+
+        // Act
+        int actual = PasswordUtils.countSpecialCharacters(string);
+
+        // Assert
+        assertEquals(8, actual);
+    }
+
+    @Test
     void testDescribeHasSufficientSpecialCharacters() {
         // Arrange
         String string = "!dsla$cdss#";
