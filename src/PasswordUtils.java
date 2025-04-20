@@ -119,9 +119,17 @@ public class PasswordUtils {
      */
     public static boolean hasSufficientSpecialCharacters(String password, int minimum) {
         // TODO: Make tests FIRST, then implement the method
+
+        // This if statement is just to check if the password is empty or null
+        if (password == null || password.isEmpty()) {
+            return false;
+        }
+
+        int count = countSpecialCharacters(password);
+        return count >= minimum;
+
         // Please have your tests in a separate commit from the implementation
         // Required: please use countSpecialCharacters as a helper method.
         // Don't just copy/paste the logic!
-        return false;
     }
 }
