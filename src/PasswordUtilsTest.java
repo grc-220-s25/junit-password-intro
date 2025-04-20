@@ -82,5 +82,42 @@ public class PasswordUtilsTest {
         //Assert
         assertFalse(actual);
     }
+
+    //Doing a test for the method containsTriple
+    @Test
+    void testContainsTriple() {
+        //Arrange
+        String password = "helloooSDEV220";
+
+        //Act
+        boolean actual = PasswordUtils.containsTriple(password);
+
+        //Assert
+        assertTrue(actual);
+    }
+    
+    @Test
+    void testContainsTripleShort() {
+        //Arrange
+        String password = "hel";
+
+        //Act
+        boolean actual = PasswordUtils.containsTriple(password);
+
+        //Assert
+        assertFalse(actual);
+    }
+
+    @Test
+    void testContainsTripleEmpty() {
+        //Arrange
+        String password = "";
+
+        //Act
+        boolean actual = PasswordUtils.containsTriple(password);
+
+        //Assert
+        assertFalse(actual);
+    }
     
 }
