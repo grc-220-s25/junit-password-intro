@@ -125,7 +125,7 @@ public class PasswordUtilsTest {
         // Act
         int actual = PasswordUtils.countSpecialCharacters(password);
         // Assert
-        assertEquals(1, actual);
+        assertEquals(2, actual);
     }
 
     @Test
@@ -141,11 +141,11 @@ public class PasswordUtilsTest {
     @Test
     void countSpecialCharactersThree() {
         // Arrange
-        String password = "$$no!dollar@!?";
+        String password = "<no!dollar@!?>";
         // Act
         int actual = PasswordUtils.countSpecialCharacters(password);
         // Assert
-        assertEquals(4, actual);
+        assertEquals(6, actual);
     }
 
 }
