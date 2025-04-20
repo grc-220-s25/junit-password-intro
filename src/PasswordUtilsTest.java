@@ -154,9 +154,9 @@ public class PasswordUtilsTest {
         // Arrange
         String password = "@shd%^*&hdh>";
         // Act
-        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, 6);
         // Assert
-        assertEquals(6, actual);
+        assertEquals(true, actual);
     }
 
     @Test
@@ -164,9 +164,9 @@ public class PasswordUtilsTest {
         // Arrange
         String password = "hd%^&jshd(*)";
         // Act
-        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, 2);
         // Assert
-        assertEquals(6, actual);
+        assertEquals(true, actual);
     }
 
     @Test
@@ -174,9 +174,9 @@ public class PasswordUtilsTest {
         // Arrange
         String password = "jsdkfj!@#jiHK";
         // Act
-        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password);
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, 6);
         // Assert
-        assertEquals(3, actual);
+        assertEquals(false, actual);
     }
 
 }
