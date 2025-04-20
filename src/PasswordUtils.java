@@ -35,7 +35,10 @@ public class PasswordUtils {
      * @return true if the password is alphanumeric, false otherwise
      */
     public static boolean isAlphanumeric(String password) {
-        for (int i = 0; i < password.length() - 1; i++) {
+        if(password == null || password.isEmpty()) {
+            return false;
+        }
+        for (int i = 0; i < password.length(); i++) {
             // char c = password.charAt(i); is for the first character of the password
             char c = password.charAt(i);
             if (!Character.isLetterOrDigit(c)) {
