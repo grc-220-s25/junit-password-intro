@@ -93,4 +93,24 @@ public class PasswordUtilsTest {
         // Assert
         assertEquals(0, actual);
     }
+
+    @Test
+    void testHasSufficientSpecialCharacters() {
+        // Arrange
+        String password = "pa$$word123!";
+        // Act
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, 0);
+        // Assert
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void testNoSufficientSpecialCharacters() {
+        // Arrange
+        String password = "password";
+        // Act
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, 0);
+        // Assert
+        assertEquals(false, actual);
+    }
 }
