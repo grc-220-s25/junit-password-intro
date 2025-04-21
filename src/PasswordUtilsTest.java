@@ -72,9 +72,23 @@ public class PasswordUtilsTest {
     }
     @Test
     void  testNumberSpecialFalse(){
-        String password = "###4+  abc";
+        String password = "###4+  Abc";
         int actual = PasswordUtils.countSpecialCharacters(password);
         assertEquals(4, actual);
 
+    }
+    @Test 
+    void testsEnoughSpecialTrue(){
+        String password = "####lolz";
+        int num = 3;
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, num);
+        assertEquals(true, actual);
+    }
+    @Test 
+    void testsEnoughSpecialFalse(){
+        String password = "#### lolz++";
+        int num = 6;
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, num);
+        assertEquals(false, actual);
     }
 }
