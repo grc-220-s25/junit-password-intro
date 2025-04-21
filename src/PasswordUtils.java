@@ -2,10 +2,15 @@
  * Utility class for analyzing passwords.
  */
 public class PasswordUtils {
+    public static void main(String[] args) {
+        // String result = describePasswordLength("helloSDEV220");
+        // System.out.println(result);
 
+
+    }
     /**
      * Returns a description of the password's length.
-     *
+     * 
      * @param password the password to analyze
      * @return "short" if the password has fewer than 6 characters,
      *         "medium" if it has between 6 and 11 characters (inclusive),
@@ -15,7 +20,7 @@ public class PasswordUtils {
         int length = password.length();
         if (length < 6) {
             return "short";
-        } else if (length <= 12) {
+        } else if (length < 12) {
             return "medium";
         }
         return "long";
@@ -28,12 +33,12 @@ public class PasswordUtils {
      * @return true if the password is alphanumeric, false otherwise
      */
     public static boolean isAlphanumeric(String password) {
-        for (int i = 0; i < password.length() - 1; i++) {
+        for (int i = 0; i < password.length(); i++) {  // removed -1 to check for last charater.
             char c = password.charAt(i);
             if (!Character.isLetterOrDigit(c)) {
                 return false;
-            } else {
-                return true;
+            // } else {
+            //     return true;
             }
         }
         return true;
@@ -52,8 +57,16 @@ public class PasswordUtils {
     public static boolean containsTriple(String password) {
         // TODO: Make tests FIRST, then implement the method
         // Please have your tests in a separate commit from the implementation
-        return false;
+        
+        for(int i = 0; i < password.length()-2; i++) {  
+                if(password.charAt(i) == password.charAt(i+1)
+                && password.charAt(i) == password.charAt(i+2)) {
+                    return true;
+                }
+            }
+           return false;
     }
+    
 
     /**
      * Returns the number of special characters in the password.
@@ -67,8 +80,16 @@ public class PasswordUtils {
     public static int countSpecialCharacters(String password) {
         // TODO: Make tests FIRST, then implement the method
         // Please have your tests in a separate commit from the implementation
-        return 0;
+        int count = 0;
+        for(int i =0; i < password.length(); i++) {
+            if(!Character.isLetterOrDigit(password.charAt(i))) {
+                count++;
+            }
+        }
+        return count;
     }
+    
+
 
     /**
      * Checks whether a password has at least a minimum number of special characters.
@@ -84,6 +105,12 @@ public class PasswordUtils {
         // Please have your tests in a separate commit from the implementation
         // Required: please use countSpecialCharacters as a helper method.
         // Don't just copy/paste the logic!
+        int helperMethod = countSpecialCharacters(password);
+        for(int i = 0; i < password.length(); i++) {
+            if(helperMethod > minimum ) {
+                return true;
+            }
+        }
         return false;
     }
 }
