@@ -3,6 +3,12 @@
  */
 public class PasswordUtils {
 
+    public static void main(String[] args) {
+    //     String result = describePasswordLength("helloSdev220");
+
+    //     System.out.println(result);
+   }
+ 
     /**
      * Returns a description of the password's length.
      *
@@ -15,7 +21,7 @@ public class PasswordUtils {
         int length = password.length();
         if (length < 6) {
             return "short";
-        } else if (length <= 12) {
+        } else if (length < 12) {
             return "medium";
         }
         return "long";
@@ -32,8 +38,6 @@ public class PasswordUtils {
             char c = password.charAt(i);
             if (!Character.isLetterOrDigit(c)) {
                 return false;
-            } else {
-                return true;
             }
         }
         return true;
@@ -52,6 +56,14 @@ public class PasswordUtils {
     public static boolean containsTriple(String password) {
         // TODO: Make tests FIRST, then implement the method
         // Please have your tests in a separate commit from the implementation
+    
+        for (int i = 0; i < password.length() - 2; i++) {
+            char current = password.charAt(i);
+            if (current == password.charAt(i + 1) && current == password.charAt(i + 2)) {
+                return true;
+            }
+        }
+    
         return false;
     }
 
@@ -67,7 +79,14 @@ public class PasswordUtils {
     public static int countSpecialCharacters(String password) {
         // TODO: Make tests FIRST, then implement the method
         // Please have your tests in a separate commit from the implementation
-        return 0;
+        int count = 0;
+        for(int i = 0; i < password.length(); i++){
+            char c = password.charAt(i);
+            if(!Character.isLetterOrDigit(c)){
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
@@ -84,6 +103,10 @@ public class PasswordUtils {
         // Please have your tests in a separate commit from the implementation
         // Required: please use countSpecialCharacters as a helper method.
         // Don't just copy/paste the logic!
+        int number = countSpecialCharacters(password);
+        if(number >= minimum){
+            return true;
+        }
         return false;
     }
 }
