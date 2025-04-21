@@ -99,7 +99,7 @@ public class PasswordUtilsTest {
         // Arrange
         String password = "pa$$word123!";
         // Act
-        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, 0);
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, 3);
         // Assert
         assertEquals(true, actual);
     }
@@ -109,7 +109,7 @@ public class PasswordUtilsTest {
         // Arrange
         String password = "password";
         // Act
-        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, 0);
+        boolean actual = PasswordUtils.hasSufficientSpecialCharacters(password, 1);
         // Assert
         assertEquals(false, actual);
     }
