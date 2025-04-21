@@ -53,4 +53,24 @@ public class PasswordUtilsTest {
         // Assert
         assertEquals(true, actual);
     }
+
+    @Test
+    void testContainsTriple() {
+        // Arrange
+        String password = "paaassword";
+        // Act
+        boolean actual = PasswordUtils.containsTriple(password);
+        // Assert
+        assertEquals(true, actual);
+    }
+
+    @Test
+    void testNotContainsTriple() {
+        // Arrange
+        String password = "password";
+        // Act
+        boolean actual = PasswordUtils.containsTriple(password);
+        // Assert
+        assertEquals(false, actual);
+    }
 }
