@@ -24,11 +24,11 @@ public class PasswordUtilsTest {
     @Test
     void testDescribePasswordLengthMedium() {
         //Arrange
-        String password = "helloSDEV220";
+        String password = "helloSDEV22";
         //Act
         String actual = PasswordUtils.describePasswordLength(password);
         //Assert
-        assertEquals("long", actual);
+        assertEquals("medium", actual);
     }
     //Unit-tests for isAlphanumeric method
     @Test
@@ -52,7 +52,7 @@ public class PasswordUtilsTest {
         @Test
         void checkIfIsAlphanumeric() {
             //Arrange
-        String password = "123456$";
+        String password = "1a2b3c4d5e6$";
             //Act
         Boolean actual = PasswordUtils.isAlphanumeric(password);
             //Assert
@@ -68,6 +68,15 @@ public class PasswordUtilsTest {
         assertEquals(true, actual);
         }
         //Unit-tests for containsTripple method
+        @Test
+        void stringIsEmpty() {
+            //Arrange
+        String password = "";
+            //Act
+        Boolean actual = PasswordUtils.containsTriple(password);
+            //Assert
+        assertEquals(false, actual);
+        }
         @Test
         void containsTripple() {
             //Arrange
@@ -131,18 +140,9 @@ public class PasswordUtilsTest {
             //Assert
         assertEquals(true, actual);
         }
-        @Test
-        void stringIsEmpty() {
-            //Arrange
-        String password = "";
-            //Act
-        Boolean actual = PasswordUtils.containsTriple(password);
-            //Assert
-        assertEquals(false, actual);
-        }
         //Unit-tests for countSpecialCharacters
         @Test
-        void noCharactersInserted() {
+        void isNullString() {
             //Arrange
         String password = "";
             //Act
@@ -160,7 +160,7 @@ public class PasswordUtilsTest {
         assertEquals(1, actual);
         }
         @Test
-        void twoSpecialCharactersSeparatedByASpace() {
+        void hasThreeSpecialCharacters() {
             //Arrange
         String password = "@ &";
             //Act
@@ -245,7 +245,7 @@ public class PasswordUtilsTest {
         assertEquals(false, actual);
         }
         @Test
-        void hasNegativeNumberOfSpecialCharacters() {
+        void isTrueWhenNegativeThreshold() {
             //Arrange
         String password = "d!2@m#3$f%4^o&5*d(6)c 7-e_8+u=8`c~9;d'0?s>1<m!2@e#3$k%4^e&5*d(6)j!6@h#7$";
         int minimum = -3;
@@ -255,7 +255,7 @@ public class PasswordUtilsTest {
         assertEquals(true, actual);
         }
         @Test
-        void hasThreeSpecialCharacters() {
+        void hasMinimumOfThreeSpecialCharacters() {
             //Arrange
         String password = "!@$";
         int minimum = 3;
